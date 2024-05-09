@@ -1,20 +1,22 @@
-var http = require('http');
-var fs = require('fs');
-http.createServer(function(req,res){
-    //res.writeHead(200,{'content-type':'text/html'});
-    //res.writeHead(200,{'content-type':'application/json'})
-   
-        var html = fs.readFileSync('./plik.html','utf8');
-        var Header = 'Home page';
-        html = html.replace('{ Header }',Header);
-        //res.end(html);
-        //res.writeHead(200);
-    
-    
-    fs.createReadStream('./plik.html').pipe(res);
-    //res.writeHead(200);
+const http = require('http');
+const fs = require('fs');
+
+http.createServer((req, res) => {
+  const filePath = './plik.html';
+  const header = 'Home page';
+
+  fs.readFile(filePath, 'utf8', (err, html) => {
+    if (err) {
+      res.statusCode = 500;
+      res.end(err.message);
+      return;
+    }
+
+    html = html.replace('{ Header }', header);
+
+    res.writeHead(200, { 'Content-Type': 'text/html' });
     res.end(html);
-    
+  });
 }).listen(3000);
 
 // URL
