@@ -25,7 +25,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: #fff;
         }
-
         legend {
             font-size: 18px;
             font-weight: bold;
@@ -39,29 +38,90 @@
         fieldset + fieldset {
             margin-top: 20px;
         }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            display: block;
+            margin: 20px auto;
+        }
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        input[type="radio"] + label {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: #eee;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="radio"]:checked + label {
+            background-color: #4CAF50;
+            color: #fff;
+        }
     </style>
 </head>
-<header>
-    <h1>Quiz Node.js</h1>
-</header>
 <body>
-    <fieldset>
-        <legend>Pytanie 1</legend>
-        <div class="question-content">
-            { p1 }
-        </div>
-    </fieldset>
-    <fieldset>
-        <legend>Pytanie 2</legend>
-        <div class="question-content">
-            { p2 }
-        </div>
-    </fieldset>
-    <fieldset>
-        <legend>Pytanie 3</legend>
-        <div class="question-content">
-            { p3 }
-        </div>
-    </fieldset>
+    <header>
+        <h1>Quiz Node.js</h1>
+    </header>
+    <form id="form">
+        <fieldset>
+            <legend>Pytanie 1</legend>
+            <div class="question-content">
+                { p1 }
+                <br>
+                <input type="radio" id="1A" value="A" name="1">
+                <label for="1A">A</label>
+                <input type="radio" id="1B" value="B" name="1">
+                <label for="1B">B</label>
+                <input type="radio" id="1C" value="C" name="1">
+                <label for="1C">C</label>
+                <input type="radio" id="1D" value="D" name="1">
+                <label for="1D">D</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Pytanie 2</legend>
+            <div class="question-content">
+                { p2 }
+                <br>
+                <input type="radio" id="2A" value="A" name="2">
+                <label for="2A">A</label>
+                <input type="radio" id="2B" value="B" name="2">
+                <label for="2B">B</label>
+                <input type="radio" id="2C" value="C" name="2">
+                <label for="2C">C</label>
+                <input type="radio" id="2D" value="D" name="2">
+                <label for="2D">D</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Pytanie 3</legend>
+            <div class="question-content">
+                { p3 }
+                <br>
+                <input type="radio" id="3A" value="A" name="3">
+                <label for="3A">A</label>
+                <input type="radio" id="3B" value="B" name="3">
+                <label for="3B">B</label>
+                <input type="radio" id="3C" value="C" name="3">
+                <label for="3C">C</label>
+                <input type="radio" id="3D" value="D" name="3">
+                <label for="3D">D</label>
+            </div>
+        </fieldset>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
