@@ -51,6 +51,7 @@ connection.connect((err) => {
 
         req.on('end', () => {
           const formData = new URLSearchParams(body);
+          const filePath2 = './wyniki.html';
           const answers = Array.from(formData.entries()).reduce((obj, [key, value]) => {
             obj[key] = value;
             return obj;
@@ -67,12 +68,14 @@ connection.connect((err) => {
         }
             console.log('Odpowiedzi:', answersArray);
             console.log('Wynik:', score);
+            fs.readFile(filePath2, 'utf8', (err, html) => {
+            html = html.replace('{ score }', score);
             res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end('<h1>Wynik: '+score+'</h1>');
+            res.end(html);
+            });
         });
       }
     }).listen(3000);
-
     connection.end();
   });
 });

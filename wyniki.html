@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Node.js wynik</title>
+    <style>
+        body {
+            font-family: Open Sans, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #444;
+            border-radius: 25px;
+        }
+        fieldset {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        legend {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+       .score-content {
+            padding: 20px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        fieldset + fieldset {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Quiz Node.js</h1>
+        <p>Wynik</p>
+    </header>
+    <fieldset>
+      <legend>Twój wynik</legend>
+          <div class="score-content">
+            { score } / 3
+          </div>
+    </fieldset>
+</body>
+</html>
